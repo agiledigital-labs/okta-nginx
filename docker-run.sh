@@ -18,5 +18,6 @@ docker run \
     -e "COOKIE_DOMAIN=$COOKIE_DOMAIN" \
     -e "ISSUER=$ISSUER" \
     -e "LOGIN_REDIRECT_URL=$LOGIN_REDIRECT_URL" \
+    -e "PROXY_PASS=$PROXY_PASS" \
     -p "8080:80" \
     boxboat/okta-nginx
