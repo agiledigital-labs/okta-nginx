@@ -22,4 +22,12 @@ COPY --from=build /root/okta-nginx/okta-nginx /usr/local/bin/okta-nginx
 
 COPY stage/ /
 
-CMD ["run.sh"]
+# Install app locally
+RUN apk add --no-cache nodejs npm
+RUN mkdir /app
+COPY ./app/* /app
+RUN cd /app && npm i
+COPY ./myrun.sh /usr/local/bin/
+RUN chmod u+x /usr/local/bin/myrun.sh
+
+CMD ["myrun.sh"]
